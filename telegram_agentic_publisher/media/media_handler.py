@@ -1,6 +1,5 @@
 """Media handling for Telegram posts."""
 
-import os
 import tempfile
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple

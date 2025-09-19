@@ -4,7 +4,6 @@ import asyncio
 import sys
 import json
 from pathlib import Path
-from typing import Optional
 import click
 from colorama import init, Fore, Style
 from .auth.authenticator import TelegramAuthenticator
@@ -156,7 +155,10 @@ def post(ctx, channel, session, content, file, media, template, data, no_preview
 
             session_info = active_sessions[0]
             session_id = session_info["id"]
-            click.echo(f"{Fore.CYAN}Using session: {session_info['name']} (@{session_info['username']}){Style.RESET_ALL}")
+            click.echo(
+                f"{Fore.CYAN}Using session: {session_info['name']} "
+                f"(@{session_info['username']}){Style.RESET_ALL}"
+            )
         else:
             # Find session by ID or name
             session_info = session_mgr.get_session(session) or session_mgr.get_session_by_name(session)

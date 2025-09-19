@@ -1,6 +1,5 @@
 """Encryption utilities for session management."""
 
-import os
 import base64
 import json
 from pathlib import Path

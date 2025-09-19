@@ -1,6 +1,5 @@
 """Main Telegram publisher class."""
 
-import asyncio
 from typing import Optional, Dict, Any, List, Union, Tuple
 from pathlib import Path
 from telethon import TelegramClient

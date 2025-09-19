@@ -1,7 +1,7 @@
 """Template processing for dynamic content generation."""
 
 import re
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 from datetime import datetime
 from ..utils.logger import setup_logger
 

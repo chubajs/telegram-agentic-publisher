@@ -1,6 +1,5 @@
 """Telegram authentication module."""
 
-import asyncio
 import getpass
 from typing import Optional, Dict, Any
 from telethon import TelegramClient

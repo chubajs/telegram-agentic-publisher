@@ -1,6 +1,6 @@
 """Entity conversion utilities for different Telegram libraries."""
 
-from typing import List, Any
+from typing import List
 from ..utils.logger import setup_logger
 
 logger = setup_logger(__name__)

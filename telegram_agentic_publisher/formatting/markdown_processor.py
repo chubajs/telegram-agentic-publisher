@@ -1,7 +1,7 @@
 """Markdown processing for Telegram formatting."""
 
 import re
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 from telethon.tl.types import (
     MessageEntityBold,
     MessageEntityItalic,
@@ -11,7 +11,6 @@ from telethon.tl.types import (
     MessageEntityStrike,
     MessageEntityUnderline,
     MessageEntityBlockquote,
-    MessageEntitySpoiler,
 )
 from ..utils.logger import setup_logger
 
@@ -81,7 +80,6 @@ class MarkdownProcessor:
         code_pattern = r'`([^`]+)`'
         for match in reversed(list(re.finditer(code_pattern, plain_text))):
             start = match.start() - offset_adjustment
-            end = match.end() - offset_adjustment
             code_text = match.group(1)
 
             # Calculate UTF-16 positions
@@ -188,7 +186,6 @@ class MarkdownProcessor:
                 new_lines.append(clean_line)
 
                 # Track position for entity
-                line_start = len('\n'.join(new_lines[:i]))
                 utf16_start = MarkdownProcessor._calculate_utf16_offset('\n'.join(new_lines[:i]))
                 utf16_length = MarkdownProcessor._calculate_utf16_length(clean_line)
 
