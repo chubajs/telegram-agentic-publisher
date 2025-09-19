@@ -19,7 +19,7 @@ class TemplateProcessor:
             "title": lambda x: str(x).title(),
             "capitalize": lambda x: str(x).capitalize(),
             "strip": lambda x: str(x).strip(),
-            "truncate": lambda x, n=50: str(x)[:n] + "..." if len(str(x)) > n else str(x),
+            "truncate": lambda x, n=50: str(x)[:int(n)] + "..." if len(str(x)) > int(n) else str(x),
             "date": lambda x, fmt="%Y-%m-%d": datetime.fromisoformat(str(x)).strftime(fmt) if x else "",
             "default": lambda x, default="": x if x else default,
             "escape_md": self._escape_markdown,
@@ -126,30 +126,39 @@ class TemplateProcessor:
         Returns:
             Processed string
         """
-        # Pattern for conditional blocks {?condition}...{/condition}
-        pattern = r'\{\?([^}]+)\}(.*?)\{/\1\}'
+        # Process conditionals iteratively to handle all patterns
+        result = template
+        while True:
+            # Pattern for conditional blocks {?condition}...{/condition}
+            # Match the closing tag more flexibly
+            pattern = r'\{\?(\!?[^}]+)\}(.*?)\{/[^}]+\}'
 
-        def replace_conditional(match):
+            match = re.search(pattern, result, flags=re.DOTALL)
+            if not match:
+                break
+
             condition = match.group(1).strip()
             content = match.group(2)
 
             # Check if condition is negated
             if condition.startswith("!"):
-                condition = condition[1:]
+                base_condition = condition[1:]
                 negate = True
             else:
+                base_condition = condition
                 negate = False
 
             # Evaluate condition
-            value = self._get_nested_value(data, condition)
+            value = self._get_nested_value(data, base_condition)
             is_true = bool(value)
 
             if negate:
                 is_true = not is_true
 
-            return content if is_true else ""
+            replacement = content if is_true else ""
+            result = result[:match.start()] + replacement + result[match.end():]
 
-        return re.sub(pattern, replace_conditional, template, flags=re.DOTALL)
+        return result
 
     def _process_loops(self, template: str, data: Dict[str, Any]) -> str:
         """

@@ -66,7 +66,10 @@ def auth(ctx, phone, name):
                 session_name, phone, session_string, user_info
             )
 
-            click.echo(f"{Fore.GREEN}✓ Successfully authenticated as @{user_info['username']} ({user_info['first_name']}){Style.RESET_ALL}")
+            click.echo(
+                f"{Fore.GREEN}✓ Successfully authenticated as "
+                f"@{user_info['username']} ({user_info['first_name']}){Style.RESET_ALL}"
+            )
             click.echo(f"{Fore.GREEN}✓ Session saved with ID: {session_id}{Style.RESET_ALL}")
 
         finally:

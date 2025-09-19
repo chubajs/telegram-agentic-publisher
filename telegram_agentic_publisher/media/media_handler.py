@@ -2,7 +2,7 @@
 
 import tempfile
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Any, Optional, Tuple
 import aiohttp
 from PIL import Image
 from ..utils.logger import setup_logger
