@@ -78,6 +78,9 @@ class EntityConverter:
         result = []
         for entity_dict in entity_dicts:
             entity_type = entity_dict.get("type")
+            if entity_type is None:
+                logger.warning("Entity dict missing 'type' field")
+                continue
             entity_class = entity_map.get(entity_type)
 
             if not entity_class:

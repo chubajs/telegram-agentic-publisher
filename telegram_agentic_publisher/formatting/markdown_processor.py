@@ -175,7 +175,7 @@ class MarkdownProcessor:
             plain_text = plain_text[:match.start()] + code_text + plain_text[match.end():]
 
         # Process blockquotes
-        blockquote_lines = []
+        blockquote_lines: List = []
         lines = plain_text.split('\n')
         new_lines = []
 

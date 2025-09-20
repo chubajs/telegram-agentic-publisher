@@ -87,6 +87,8 @@ class MediaDownloader:
         Returns:
             Path to downloaded file
         """
+        if not self.session:
+            raise ValueError("Session not initialized")
         async with self.session.get(url, headers=headers) as response:
             response.raise_for_status()
 

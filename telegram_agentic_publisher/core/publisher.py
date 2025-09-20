@@ -86,6 +86,8 @@ class TelegramPublisher:
                 return False
 
             # Get user info for logging
+            if not self.client:
+                return False
             me = await self.client.get_me()
             logger.info(f"Connected as @{me.username} ({me.first_name})")
 
@@ -216,6 +218,8 @@ class TelegramPublisher:
             logger.warning(f"Message too long ({len(content)}), truncating")
             content = content[:4090] + "..."
 
+        if not self.client:
+            raise ValueError("Client not connected")
         return await self.client.send_message(
             channel,
             content,
@@ -247,6 +251,8 @@ class TelegramPublisher:
         uploaded_files = []
         for media_file in media_files:
             try:
+                if not self.client:
+                    raise ValueError("Client not connected")
                 uploaded = await self.client.upload_file(media_file)
                 uploaded_files.append(uploaded)
             except Exception as e:
@@ -257,6 +263,8 @@ class TelegramPublisher:
             return None
 
         # Send as album or single file
+        if not self.client:
+            raise ValueError("Client not connected")
         return await self.client.send_file(
             channel,
             file=uploaded_files,
@@ -302,6 +310,8 @@ class TelegramPublisher:
             return None
 
         try:
+            if not self.client:
+                return None
             entity = await self.client.get_entity(channel)
             return {
                 "id": entity.id,
@@ -328,6 +338,8 @@ class TelegramPublisher:
             return None
 
         try:
+            if not self.client:
+                return None
             me = await self.client.get_me()
             return {
                 "id": me.id,
