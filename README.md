@@ -2,7 +2,7 @@
 
 An open-source Python library for posting to Telegram channels via authorized user accounts. Supports rich formatting, media galleries, and template-based content generation.
 
-**Author**: [Serge Bulaev](https://co.actor) [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg)](https://www.linkedin.com/in/sbulaev/)
+**Author**: [Serge Bulaev](https://co.actor) <a href="https://www.linkedin.com/in/sbulaev/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" width="20" height="20" style="vertical-align: middle;"></a>
 **License**: MIT
 
 ## Features
