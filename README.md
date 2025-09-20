@@ -2,7 +2,7 @@
 
 An open-source Python library for posting to Telegram channels via authorized user accounts. Supports rich formatting, media galleries, and template-based content generation.
 
-**Author**: [Serge Bulaev](https://bulaev.net)
+**Author**: [Serge Bulaev](https://co.actor) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sbulaev/)
 **License**: MIT
 
 ## Features
@@ -25,7 +25,7 @@ pip install telegram-agentic-publisher
 
 ### From Source
 ```bash
-git clone https://github.com/sergebulaev/telegram-agentic-publisher.git
+git clone https://github.com/chubajs/telegram-agentic-publisher.git
 cd telegram-agentic-publisher
 pip install -e .
 ```
@@ -179,7 +179,7 @@ data = {
     "title": "Important Announcement",
     "description": "This is a templated message",
     "has_link": True,
-    "link": "https://bulaev.net",
+    "link": "https://co.actor",
     "tags": ["news", "update", "telegram"]
 }
 
@@ -354,7 +354,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/telegram-agentic-publisher.git
+git clone https://github.com/chubajs/telegram-agentic-publisher.git
 cd telegram-agentic-publisher
 
 # Create virtual environment
@@ -381,15 +381,16 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Author
 
 **Serge Bulaev**
-- Website: [https://bulaev.net](https://bulaev.net)
-- GitHub: [@sergebulaev](https://github.com/sergebulaev)
-- Email: serge@bulaev.net
+- 🌐 Website: [https://co.actor](https://co.actor)
+- 💼 LinkedIn: [https://www.linkedin.com/in/sbulaev/](https://www.linkedin.com/in/sbulaev/)
+- 🐙 GitHub: [@chubajs](https://github.com/chubajs)
+- 📧 Email: serge@bulaev.net
 
 ## Support
 
 For issues and questions:
-- GitHub Issues: [Create an issue](https://github.com/sergebulaev/telegram-agentic-publisher/issues)
-- Documentation: [Full docs](https://github.com/sergebulaev/telegram-agentic-publisher/wiki)
+- GitHub Issues: [Create an issue](https://github.com/chubajs/telegram-agentic-publisher/issues)
+- Documentation: [Full docs](https://github.com/chubajs/telegram-agentic-publisher/wiki)
 
 ## Disclaimer
 
